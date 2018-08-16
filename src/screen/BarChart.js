@@ -103,7 +103,7 @@ class BarChart extends Component {
 
     return (
       <div>
-        <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
+        <AmCharts.React style={{ width: "70%", height: "500px" }} options={config} />
       </div>
     );
   }

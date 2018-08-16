@@ -1,88 +1,71 @@
 import React, { Component } from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 
-function generateChartData() {
-  var chartData = [];
-  var firstDate = new Date();
-  firstDate.setDate(firstDate.getDate() - 100);
-
-      var visits = 0.0;
-      var hits = 0.1;
-      var views = 0.2;
-
-
-  for (var i = 0; i < 100; i++) {
-      var newDate = new Date(firstDate);
-      newDate.setDate(newDate.getDate() + i);
-
-      visits = parseFloat((Math.random()*0.5).toFixed(1)) + 0.4;
-      hits = parseFloat((Math.random()*0.5).toFixed(1)) + 0.6;
-      views = parseFloat((Math.random()*0.5).toFixed(1)) + 0.8;
-
-      chartData.push({
-          date: newDate,
-          visits: visits,
-          hits: hits,
-          views: views
-      });
-  }
-  return chartData;
-}
+import chartData from '../data/SeriesChartData';
 
 class SeriesChart extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      dataProvider: generateChartData(),
-      timer: null
-    };
   }
 
   render() {
     const config = {
       "type": "serial",
       "theme": "light",
+      "categoryField": "date",
+      "rotate": false,
+      "startDuration": 1,
       "legend": {
-          "useGraphSettings": true
+        "position": "right",
+        "useGraphSettings": true
       },
-      "dataProvider": this.state.dataProvider,
+      "dataProvider": chartData,
       "synchronizeGrid":true,
       "valueAxes": [{
           "id":"v1",
-          "axisColor": "#FF6600",
+          "axisColor": "#FF0000	",
           "axisThickness": 2,
           "axisAlpha": 1,
           "position": "left"
       }],
       "graphs": [{
           "valueAxis": "v1",
-          "lineColor": "#FF6600",
-          "bullet": "round",
-          "bulletBorderThickness": 1,
-          "hideBulletsCount": 30,
-          "title": "Chhanel 1",
-          "valueField": "visits",
-      "fillAlphas": 0
+          "lineColor": "#800000",
+          "title": "TOMADA",
+          "valueField": "TOMADA",
+          
       }, {
           "valueAxis": "v2",
-          "lineColor": "#FCD202",
-          "bullet": "square",
-          "bulletBorderThickness": 1,
-          "hideBulletsCount": 30,
-          "title": "Chhanel 1",
-          "valueField": "hits",
+          "lineColor": "#FFFF00",
+          "title": "LUZ",
+          "valueField": "LUZ",
       "fillAlphas": 0
       }, {
           "valueAxis": "v3",
-          "lineColor": "#B0DE09",
-          "bullet": "triangleUp",
-          "bulletBorderThickness": 1,
-          "hideBulletsCount": 30,
-          "title": "Chhanel 1",
-          "valueField": "views",
+          "lineColor": "#808000",
+          "title": "AR CONDICIONADO",
+          "valueField": "AR CONDICIONADO",
       "fillAlphas": 0
-      }],
+      }, {
+        "valueAxis": "v3",
+        "lineColor": "#008000",
+        "title": "FASE 1",
+        "valueField": "FASE 1",
+        "fillAlphas": 0
+        }, {
+          "valueAxis": "v3",
+          "lineColor": "#000080",
+          "title": "Channel 5",
+          "valueField": "Channel 5",
+      "fillAlphas": 0
+      }, {
+        "valueAxis": "v3",
+        "lineColor": "#808080",
+        "title": "VAZIO",
+        "valueField": "VAZIO",
+    "fillAlphas": 0
+    }],
       "chartScrollbar": {},
       "chartCursor": {
           "cursorPosition": "mouse"
@@ -101,7 +84,7 @@ class SeriesChart extends Component {
 
     return (
       <div>
-        <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
+        <AmCharts.React style={{ width: "70%", height: "500px" }} options={config} />
       </div>
     );
   }
