@@ -73,7 +73,7 @@ class BarChart extends Component {
       "chartScrollbar": {  },
       "legend": {
           "align": "center",
-          "position": "right",
+          "position": "top",
           "markerType": "square",
           "right": 6,
           "labelText": "[[title]]",

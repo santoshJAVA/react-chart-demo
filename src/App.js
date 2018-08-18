@@ -27,7 +27,6 @@ class App extends Component {
           </TabPanel>
           <TabPanel>
             <SeriesChart />
-            <BarChart />
           </TabPanel>
         </Tabs>
       </div>
