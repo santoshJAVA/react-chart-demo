@@ -166,6 +166,9 @@ class SeriesChart extends Component {
       },
       "export": {
         "enabled": true
+      },
+      "responsive": {
+        "enabled": true
       }
     };
 
