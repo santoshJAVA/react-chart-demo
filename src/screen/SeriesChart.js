@@ -10,6 +10,7 @@ class SeriesChart extends Component {
     super(props);
   }
 
+  
   render() {
     const config = {
       type: "stock",
@@ -141,39 +142,30 @@ class SeriesChart extends Component {
         valueLineAlpha: 0.5
       },
     
-      periodSelector: {
-        position: "left",
-        periods: [{
-          period: "MM",
-          selected: true,
-          count: 1,
-          label: "1 month"
-        }, {
-          period: "YYYY",
-          count: 1,
-          label: "1 year"
-        }, {
-          period: "YTD",
-          label: "YTD"
-        }, {
-          period: "MAX",
-          label: "MAX"
-        }]
-      },
+      periodSelector: {},
     
       dataSetSelector: {
-        position: "right"
+        position: "none"
       },
+      listeners: { event: "init", method: event => console.log("INIT")},
       "export": {
         "enabled": true
       },
       "responsive": {
         "enabled": true
       }
+      
     };
 
     return (
       <div>
+        <select id="myDropDown" class="dropdown-menu">
+          <option value="new Date()">Today</option>
+          <option value="12-01-2017">Last 24 hours</option>
+          <option value="12-01-2017">Previous Week</option>
+          <option value="12-01-2017">Last 30 Days</option>
+          <option value="12-01-2017">Previous Weeks</option>
+        </select>
         <AmCharts.React style={{ width: "70%", height: "500px" }} options={config} />
       </div>
     );
