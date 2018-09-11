@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import AmStockChart from "amstock3/amcharts/amstock";
+import RealtimeChart from './RealtimeChart'
 
 
 import {chartData1, chartData2, chartData3, chartData4, chartData5, chartData6} from '../data/SeriesChartData';
@@ -97,7 +98,7 @@ class SeriesChart extends Component {
     
           showCategoryAxis: false,
           title: "Channel",
-          percentHeight: 70,
+          percentHeight: 50,
     
           stockGraphs: [{
             id: "g1",
@@ -116,8 +117,33 @@ class SeriesChart extends Component {
     
         {
           title: "Channel",
-          percentHeight: 30,
+          percentHeight: 50,
           stockGraphs: [{
+            valueField: "volume",
+            type: "column",
+            showBalloon: false,
+            fillAlphas: 1
+          },{
+            valueField: "volume",
+            type: "column",
+            showBalloon: false,
+            fillAlphas: 1
+          },{
+            valueField: "volume",
+            type: "column",
+            showBalloon: false,
+            fillAlphas: 1
+          },{
+            valueField: "volume",
+            type: "column",
+            showBalloon: false,
+            fillAlphas: 1
+          },{
+            valueField: "volume",
+            type: "column",
+            showBalloon: false,
+            fillAlphas: 1
+          },{
             valueField: "volume",
             type: "column",
             showBalloon: false,
@@ -158,15 +184,23 @@ class SeriesChart extends Component {
     };
 
     return (
-      <div>
-        <select id="myDropDown" class="dropdown-menu">
-          <option value="new Date()">Today</option>
-          <option value="12-01-2017">Last 24 hours</option>
-          <option value="12-01-2017">Previous Week</option>
-          <option value="12-01-2017">Last 30 Days</option>
-          <option value="12-01-2017">Previous Weeks</option>
-        </select>
-        <AmCharts.React style={{ width: "70%", height: "500px" }} options={config} />
+      <div style={{ width: "70%"}}>
+        
+        <div style={{marginLeft: 1000}}>
+          <select >
+            <option value="new Date()">Today</option>
+            <option value="12-01-2017">Last 24 hours</option>
+            <option value="12-01-2017">Previous Week</option>
+            <option value="12-01-2017">Last 30 Days</option>
+            <option value="12-01-2017">Previous Month</option>
+          </select>
+        </div>
+
+        <div style={{marginLeft: 1000}}>
+        {/* <RealtimeChart /> */}
+        </div>
+        
+        <AmCharts.React style={{ height: "500px" }} options={config} />
       </div>
     );
   }

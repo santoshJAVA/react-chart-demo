@@ -23,9 +23,12 @@ class App extends Component {
           </TabList>
       
           <TabPanel>
+          <img src={require('./images/l.png')} style={{float: "right", marginTop: 87, marginRight: 50}}/>
             <BarChart />
+            
           </TabPanel>
           <TabPanel>
+          <img src={require('./images/live.png')} style={{float: "right", marginTop: 87, marginRight: 50}}/>
             <SeriesChart />
           </TabPanel>
         </Tabs>

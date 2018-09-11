@@ -16,94 +16,66 @@ class BarChart extends Component {
     const config = {
       "type": "serial",
       "theme": "light",
-      "dataProvider": chartData,
-      "categoryField": "date",
-      "rotate": false,
-      "startDuration": 1,
-      "categoryAxis": {
-          "labelRotation": 45,
-          "gridPosition": "start",
-          "position": "left",
-          "autoGridCount": false,
-      },
-      "trendLines": [],
-      "graphs": [ {
-        "balloonText": "[[title]]: [[value]]",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "title": "Chhanel 1",
-        "type": "column",
-        "valueField": "chhanel1"
+      "dataProvider": [ {
+        "country": "Chhanel 1",
+        "visits": 14
       }, {
-        "balloonText": "[[title]]: [[value]]",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "title": "Chhanel 2",
-        "type": "column",
-        "valueField": "chhanel2"
+        "country": "Chhanel 2",
+        "visits": 10
       }, {
-        "balloonText": "[[title]]: [[value]]",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "title": "Chhanel 3",
-        "type": "column",
-        "valueField": "chhanel3"
+        "country": "Chhanel 3",
+        "visits": 13
       }, {
-        "balloonText": "[[title]]: [[value]]",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "title": "Chhanel 4",
-        "type": "column",
-        "valueField": "chhanel4"
+        "country": "Chhanel 4",
+        "visits": 12
       }, {
-        "balloonText": "[[title]]: [[value]]",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "title": "Chhanel 5",
-        "type": "column",
-        "valueField": "chhanel5"
+        "country": "Chhanel 5",
+        "visits": 9
       }, {
-        "balloonText": "[[title]]: [[value]]",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "title": "Chhanel 6",
-        "type": "column",
-        "valueField": "chhanel6"
+        "country": "Chhanel 6",
+        "visits": 11
       }],
-      "chartScrollbar": {  },
-      "legend": {
-          "align": "center",
-          "position": "top",
-          "markerType": "square",
-          "right": 6,
-          "labelText": "[[title]]",
-          "valueText": "",
-          "valueWidth": 80,
-          "textClickEnabled": true,
-          "rollOverColor": "blue",
-          "fontSize": 13,
-          "useGraphSettings": true
-
+      "valueAxes": [ {
+        "gridColor": "#FFFFFF",
+        "gridAlpha": 0.2,
+        "dashLength": 0
+      } ],
+      "gridAboveGraphs": true,
+      "startDuration": 1,
+      "graphs": [ {
+        "balloonText": "[[category]]: <b>[[value]]</b>",
+        "fillAlphas": 0.8,
+        "lineAlpha": 0.2,
+        "type": "column",
+        "valueField": "visits"
+      } ],
+      "chartCursor": {
+        "categoryBalloonEnabled": false,
+        "cursorAlpha": 0,
+        "zoomable": false
       },
-      "guides": [],
-      "valueAxes": [
-        {
-          "id": "ValueAxis-1",
-          "position": "left",
-          "axisAlpha": 0
-        }
-      ],
-      "allLabels": [],
-      "balloon": {},
-      "titles": [],
+      "categoryField": "country",
+      "categoryAxis": {
+        "gridPosition": "start",
+        "gridAlpha": 0,
+        "tickPosition": "start",
+        "tickLength": 20
+      },
       "export": {
         "enabled": true
-      },
-    };
+      }
+    }
 
     return (
-      <div>
-        <AmCharts.React style={{ width: "70%", height: "500px" }} options={config} />
+      <div style={{ width: "70%"}}>
+        <select style={{marginLeft: 1000}}>
+          <option value="new Date()">Today</option>
+          <option value="12-01-2017">Last 24 hours</option>
+          <option value="12-01-2017">Previous Week</option>
+          <option value="12-01-2017">Last 30 Days</option>
+          <option value="12-01-2017">Previous Month</option>
+        </select>
+        <AmCharts.React style={{ height: "500px" }} options={config} />
       </div>
     );
   }
